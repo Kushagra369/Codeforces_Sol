@@ -5,39 +5,17 @@ public class Taxi {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		int[] a = new int[n];
+		int[] a = new int[4];
 		for(int i=0; i<n; i++)
 		{
-			a[i] = sc.nextInt();
+			a[sc.nextInt() -1]++;
 		}
 		sc.close();
-		int taxi=0;
-		Arrays.sort(a);
-		int i=0;
-		while(i<n)
-		{
-			int sum = 0;
-			for(int j=i; j<n; j++)
-			{
-				sum = sum+a[j];
-				if(sum>4)
-				{
-					sum = sum-a[j];
-					i=j;
-					break;
-				}
-				
-				if(j==(n-1))
-				{
-					i=j+1;
-					break;
-				}
-			}
-			//System.out.println(i);
-			taxi++;
-		}
-		
-		System.out.println(taxi);
+		int t = 0;
+		t = t + a[3];
+		t = t + a[2];
+		t = t + (Math.max(0,  a[0]-a[2]) + a[1]*2+3)/4;
+		System.out.println(t);
 	}
 
 }
